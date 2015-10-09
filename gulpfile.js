@@ -2,26 +2,33 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     inlinecss = require('gulp-inline-css'),
     del = require('del'),
-    browsersync = require('browser-sync').create();
+    rename = require("gulp-rename");
 
-gulp.task('clean-before', function() {
-    del(['./*.html'])
+gulp.task('clean', function() {
+    var stream = del(['./*.html', 'dev/*.css']);
+    return stream;
 });
 
-gulp.task('sass', ['clean-before'], function() {
-    return gulp.src('dev/style.scss')
+gulp.task('sass', function() {
+    var stream = gulp.src('dev/*.scss')
         .pipe(sass())
         .pipe(gulp.dest('dev'));
+    return stream;
 });
 
 gulp.task('inline-css', ['sass'], function() {
     return gulp.src('dev/*.html')
         .pipe(inlinecss())
+        .pipe(rename("responsive-email-template.html"))
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('clean-after', ['inline-css'], function() {
-    del(['dev/*.css'])
+// default build
+gulp.task('default', ['clean'], function() {
+    gulp.start('inline-css');
 });
 
-gulp.task('default', ['clean-after']);
+// watch for sass changes and process
+gulp.task('watch', function() {
+  gulp.watch('dev/*.scss', ['sass']);
+});
