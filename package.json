@@ -1,0 +1,25 @@
+{
+  "name": "responsive-email-template",
+  "version": "1.0.0",
+  "description": "Responsive Email Template",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nvco/emailTemplate.git"
+  },
+  "author": "Norbert Ver",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nvco/emailTemplate/issues"
+  },
+  "homepage": "https://github.com/nvco/emailTemplate#readme",
+  "dependencies": {
+    "browser-sync": "^2.9.10",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-inline-css": "^3.0.0",
+    "gulp-sass": "^2.0.4"
+  }
+}
