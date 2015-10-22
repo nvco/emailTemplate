@@ -1,26 +1,31 @@
 var gulp = require('gulp'),
-    sass = require('gulp-sass'),
+    sass = require('gulp-ruby-sass'),
     inlinecss = require('gulp-inline-css'),
     del = require('del'),
-    rename = require("gulp-rename");
+    rename = require("gulp-rename"),
+    autoprefixer = require('gulp-autoprefixer'),
+    sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('clean', function() {
-    var stream = del(['./*.html', 'dev/*.css']);
+    var stream = del(['email-template.html', 'style.css', 'style.css.map']);
     return stream;
 });
 
 gulp.task('sass', function() {
-    var stream = gulp.src('dev/*.scss')
-        .pipe(sass())
-        .pipe(gulp.dest('dev'));
+    var stream = sass('*.scss', { 
+          sourcemap: true, 
+          style: 'expanded'
+        })
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('.'));
     return stream;
 });
 
 gulp.task('inline-css', ['sass'], function() {
-    return gulp.src('dev/*.html')
+    return gulp.src('index.html')
         .pipe(inlinecss())
-        .pipe(rename("responsive-email-template.html"))
-        .pipe(gulp.dest('./'));
+        .pipe(rename("email-template.html"))
+        .pipe(gulp.dest('.'));
 });
 
 // default build
@@ -30,5 +35,5 @@ gulp.task('default', ['clean'], function() {
 
 // watch for sass changes and process
 gulp.task('watch', function() {
-  gulp.watch('dev/*.scss', ['sass']);
+  gulp.watch('*.scss', ['sass']);
 });
