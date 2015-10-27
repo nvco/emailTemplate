@@ -6,9 +6,9 @@ body {
 
 table {
     border-spacing: 0;
-    font-family: sans-serif;
-    font-size: 16px;
-    line-height: 22px;
+    font-family: 'AvenirNext-Regular', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 26px;
     color: #333333;
 }
 
@@ -71,10 +71,9 @@ a {
 .h1 {
     font-size: 36px;
     line-height: 36px;
-    font-weight: normal;
+    font-weight: 400;
     margin: 0;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 40px 40px 0;
     text-transform: uppercase;
 }
 
@@ -88,104 +87,107 @@ a {
     width: 100%;
 }
 
+.copy {
+    padding: 30px 40px 0;
+}
+
+.cta {
+    padding: 35px 40px 40px;
+}
+
 .cta-button {
     display: inline-block;
     padding: 10px 30px;
-    background-color: #e20049;
+    background-color: #eb586f;
     color: #ffffff;
+    font-size: 16px;
+    line-height: 24px;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 1px;
+    border: 2px solid #eb586f;
+    &.ghost {
+        background-color: transparent;
+        border-color: #ffffff;
+        &.dark {
+            border-color: #000000;
+            color: #000000;
+        }
+    }
 }
 
-.section-1 {
+.spacer {
+    height: 30px;
+}
+
+.header-v1 {
     background-color: #ffffff;
-    .h1 {
-        padding: 40px 40px 0;
-        text-align: center;
-    }
-    .copy {
-        padding: 25px 40px 0;
-        text-align: center;
-    }
-    .cta {
-        padding: 30px 40px 40px;
-        text-align: center;
-        
-    }
 }
 
-.one-column .contents {
-    text-align: left;
-    p {
-        margin-bottom: 10px;
-    }
+.header-v2 {
+    background-color: #333333;
+    color: #ffffff;
 }
 
-.two-column {
+.header-v3 {
+    background-color: #ffffff;
+}
+
+.columns {
     text-align: center;
+    background-color: #ffffff;
     font-size: 0;
-    .column {
-        width: 100%;
-        max-width: 300px;
-        display: inline-block;
-        vertical-align: top;
-        @media screen and (max-width: 400px) {
-            max-width: 100% !important;
-            img {
-                max-width: 100% !important;
-            }
-        }
-        @media screen and (min-width: 401px) and (max-width: 600px) {
-            max-width: 50% !important;
-        }
+    
+    .image-head {
+        padding-top: 15px;
     }
     
-    .contents {
-        font-size: 14px;
-        text-align: left;
-    }
     img {
         width: 100%;
         max-width: 280px;
         height: auto;
     }
+    
     .text {
         padding-top: 10px;
+        padding-bottom: 15px;
+        font-size: 16px;
+        line-height: 22px;
     }
-}
-
-.three-column {
-    text-align: center;
-    font-size: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
     
-    .column {
-        width: 100%;
-        max-width: 200px;
-        display: inline-block;
-        vertical-align: top;
-        @media screen and (max-width: 400px) {
-            max-width: 100% !important;
-            img {
+    &.two-column {
+        .column {
+            width: 100%;
+            max-width: 285px;
+            display: inline-block;
+            vertical-align: top;
+            @media screen and (max-width: 400px) {
+                max-width: 100% !important;
+                img {
+                    max-width: 100% !important;
+                }
+            }
+            @media screen and (min-width: 401px) {
                 max-width: 50% !important;
             }
+        }        
+    }
+
+    &.three-column {
+        .column {
+            width: 100%;
+            max-width: 185px;
+            display: inline-block;
+            vertical-align: top;
+            @media screen and (max-width: 400px) {
+                max-width: 100% !important;
+                img {
+                    max-width: 100% !important;
+                }
+            }
+            @media screen and (min-width: 401px) {
+                max-width: 33% !important;
+            }
         }
-        @media screen and (min-width: 401px) and (max-width: 600px) {
-            max-width: 33% !important;
-        }
-    }
-    .contents {
-        font-size: 14px;
-        text-align: center;
-    }
-    img {
-        width: 100%;
-        max-width: 180px;
-        height: auto;
-    }
-    .text {
-        padding-top: 10px;
     }
 }
