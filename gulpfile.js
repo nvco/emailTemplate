@@ -4,7 +4,9 @@ var gulp = require('gulp'),
     del = require('del'),
     rename = require("gulp-rename"),
     autoprefixer = require('gulp-autoprefixer'),
-    sourcemaps = require('gulp-sourcemaps');
+    sourcemaps = require('gulp-sourcemaps'),
+    replace = require('gulp-replace'),
+    fs = require('fs');
 
 gulp.task('clean', function() {
     var stream = del(['email-template.html', 'style.css', 'style.css.map']);
@@ -21,11 +23,26 @@ gulp.task('sass', function() {
     return stream;
 });
 
-gulp.task('inline-css', ['sass'], function() {
-    return gulp.src('index.html')
-        .pipe(inlinecss())
-        .pipe(rename("email-template.html"))
+gulp.task('head-css', ['sass'], function() {
+    var stream = gulp.src('index.html')
+        .pipe(rename('email-template.html'))
+        .pipe(gulp.dest('.'))
+        .pipe(replace(/<link href="style-head.css"[^>]*>/, function(s) {
+            var style = fs.readFileSync('style-head.css', 'utf8');
+            return '<style>\n' + style + '\n</style>';
+        }))
         .pipe(gulp.dest('.'));
+    return stream;
+});
+
+gulp.task('inline-css', ['head-css'], function() {
+    var stream = gulp.src('email-template.html')
+        .pipe(inlinecss({
+                applyStyleTags: false,
+                removeStyleTags: false
+        }))
+        .pipe(gulp.dest('.'));
+    return stream;
 });
 
 // default build

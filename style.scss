@@ -20,8 +20,6 @@ img {
     border: 0;
 }
 
-.test { color: #fff; }
-
 .wrapper {
     width: 100%;
     table-layout: fixed;
@@ -32,8 +30,6 @@ img {
 
 .webkit {
     max-width: 600px;
-    padding-top: 15px;
-    padding-bottom: 15px;
 }
 
 .outer {
@@ -83,10 +79,6 @@ a {
     margin-bottom: 12px;
 }
 
-.contents {
-    width: 100%;
-}
-
 .copy {
     padding: 30px 40px 0;
 }
@@ -116,9 +108,14 @@ a {
     }
 }
 
-.spacer {
-    height: 30px;
-}
+.spacer-10 { height: 10px; }
+.spacer-20 { height: 20px; }
+.spacer-30 { height: 30px; }
+.spacer-40 { height: 40px; }
+.spacer-50 { height: 50px; }
+.spacer-60 { height: 60px; }
+.spacer-70 { height: 70px; }
+.spacer-80 { height: 80px; }
 
 .header-v1 {
     background-color: #ffffff;
@@ -161,15 +158,6 @@ a {
             max-width: 285px;
             display: inline-block;
             vertical-align: top;
-            @media screen and (max-width: 400px) {
-                max-width: 100% !important;
-                img {
-                    max-width: 100% !important;
-                }
-            }
-            @media screen and (min-width: 401px) {
-                max-width: 50% !important;
-            }
         }        
     }
 
@@ -179,15 +167,28 @@ a {
             max-width: 185px;
             display: inline-block;
             vertical-align: top;
-            @media screen and (max-width: 400px) {
-                max-width: 100% !important;
-                img {
-                    max-width: 100% !important;
-                }
-            }
-            @media screen and (min-width: 401px) {
-                max-width: 33% !important;
-            }
+        }
+        .image-head {
+            padding-top: 18px;
+        }
+    }
+}
+
+.footer {
+    color: #888888;
+    font-size: 16px;
+    line-height: 26px;
+    a {
+        color: #888888;
+        text-decoration: none;
+    }
+    .brand-line {
+        color: #000000;
+        .brand-name {
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 44px;
+            text-transform: uppercase;
         }
     }
 }

@@ -1,0 +1,39 @@
+.ReadMsgBody { width: 100% !important; }
+.ExternalClass { width: 100% !important; }
+.ExternalClass, 
+.ExternalClass p, 
+.ExternalClass span, 
+.ExternalClass font, 
+.ExternalClass td, 
+.ExternalClass div { 
+    line-height: 100% !important; 
+}
+
+.columns {
+    &.two-column {
+        .column {
+            @media screen and (max-width: 400px) {
+                max-width: 100% !important;
+                img {
+                    max-width: 100% !important;
+                }
+            }
+            @media screen and (min-width: 401px) {
+                max-width: 50% !important;
+            }
+        }        
+    }
+    &.three-column {
+        .column {
+            @media screen and (max-width: 400px) {
+                max-width: 100% !important;
+                img {
+                    max-width: 100% !important;
+                }
+            }
+            @media screen and (min-width: 401px) {
+                max-width: 33% !important;
+            }
+        }
+    }
+}
