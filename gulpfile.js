@@ -18,7 +18,7 @@ gulp.task('sass', function() {
           sourcemap: true, 
           style: 'expanded'
         })
-        .pipe(sourcemaps.write('.'))
+        //.pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('.'));
     return stream;
 });
@@ -38,8 +38,8 @@ gulp.task('head-css', ['sass'], function() {
 gulp.task('inline-css', ['head-css'], function() {
     var stream = gulp.src('email-template.html')
         .pipe(inlinecss({
-                applyStyleTags: false,
-                removeStyleTags: false
+            applyStyleTags: false,
+            removeStyleTags: false
         }))
         .pipe(gulp.dest('.'));
     return stream;
