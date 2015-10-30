@@ -21,3 +21,5 @@ Use 'gulp' (in project folder) to bulid final template, email-template.html.
 Free to use for any purpose. 
 
 Any feedback welcome.
+
+Demo: http://nvco.github.io/emailTemplate/
