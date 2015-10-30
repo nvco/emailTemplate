@@ -10,7 +10,7 @@ tags on top, so it will work for email clients and browsers that can handle.
 Not so "smart" clients will ignore style tags, but even without media queries, the columns part 
 of the email will behave sresponsive like. 
 
-Note: the style tag isn't inserted into the head on purpose, in case if head is stripped out by email client. 
+Note: the style tag isn't inserted into the head on purpose, in case if head gets stripped out by email client. 
 
 Use 'gulp watch' to process scss files (in project folder).
 
@@ -20,4 +20,4 @@ Use 'gulp' (in project folder) to bulid final template, email-template.html.
 
 Free to use for any purpose. 
 
-Any fseedback welcome.
+Any feedback welcome.
